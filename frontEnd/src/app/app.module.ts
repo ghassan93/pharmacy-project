@@ -24,6 +24,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { NavComponent } from './core/header/nav/nav.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { CreateUserDialogComponent } from './components/admin/create-user-dialog/create-user-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import {MatIconModule} from '@angular/material/icon';
     OrderComponent,
     OrderListComponent,
     NavComponent,
+    CreateUserDialogComponent,
     
     
 
@@ -53,7 +57,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatAutocompleteModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
    
   ],
   providers: [{

@@ -13,128 +13,123 @@ import { AdminOrderService } from './services/admin.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  showOrders = true;
+  showUsers = true;
+  drugName: string = ''
 
-drugName:string=''
+  userName: any
+  users: Customer[] = []
+  userResult: Customer[] = []
 
-userName:any 
-users:Customer[]=[]
-userResult:Customer[]=[]
+  userOrderList?: ListCustomerOrders
+  allOrder?: ListCustomerOrders;
+  Orders: Order[] = []
+  UserOrders: Order[] = []
+  allDrug: Drug[] = []
+  page: number = 1;
 
-userOrderList?:ListCustomerOrders
-allOrder?:ListCustomerOrders ;
-Orders:Order[]=[]
-UserOrders:Order[]=[]
-allDrug :Drug[]=[]
-page:number = 1;
+  pageEvent: PageEvent | undefined
 
-pageEvent:PageEvent | undefined
-
-public sort?:any;
-public userNameSort?:any;
-public drugSort?:any;
-private routeSub?:Subscription;
+  public sort?: any;
+  public userNameSort?: any;
+  public drugSort?: any;
+  private routeSub?: Subscription;
 
 
-  constructor(private authService:AuthService,
-    private adminOrderService:AdminOrderService,
+  constructor(private authService: AuthService,
+    private adminOrderService: AdminOrderService,
     private activatedRoute: ActivatedRoute,
-    private customerOrderService:CustomerOrderService
-    
-    
-    ) {  }
-    code: string =''
+    private customerOrderService: CustomerOrderService
+
+
+  ) { }
+  code: string = ''
   ngOnInit(): void {
-  this.getAllUsers()
- //this.getAllOrders()
- this. getDrugs()
-   
+    this.getAllUsers()
+    this.getDrugs()
+
 
   }
-  getDrugs(): void{
-    this.customerOrderService.getDrugList().subscribe((drugList:ListDrugs<Drug>)=>{
-      this.allDrug =drugList.results;
+  getDrugs(): void {
+    this.customerOrderService.getDrugList().subscribe((drugList: ListDrugs<Drug>) => {
+      this.allDrug = drugList.results;
       // console.log(this.drug );
-  });
+    });
 
-}
-
-  // getAllOrders(){
-  //   this.adminOrderService.getAllOrders('12345').subscribe((orderist:ListCustomerOrders)=>{
-  //     this.allOrder=orderist;
-  //    // this.Orders=orderist.results;
-  //     console.log(this.allOrder );
-  //     console.log(this.Orders );
-      
-   
+  }
 
 
-  // });
-  // }
-
-
-
-getAllUsers(){
-    this.adminOrderService.getUsersList().subscribe((users:ListCustomer<Customer>)=>{
-      this.users=users.results
+  getAllUsers() {
+    this.adminOrderService.getUsersList().subscribe((users: ListCustomer<Customer>) => {
+      this.users = users.results
       console.log(this.users);
-      
+
     });
   }
-// close button
-getusers(){
-  this.getAllUsers()
-  this.userResult=this.users
-  
-}
+  // close button
+  getusers() {
+    this.getAllUsers()
+    this.userResult = this.users
 
-getOrderByUser(userName:string,drugName?:string,page?:number){
-  this.adminOrderService.getAllOrders(userName,drugName,page).subscribe((orderslist:ListCustomerOrders)=>{
-    this.userOrderList=orderslist;
-    this.UserOrders=orderslist.results;
-    this.userName=userName;
-    console.log(this.UserOrders);
+  }
+
+  getOrderByUser(userName: string, drugName?: string, page?: number) {
+   
+    this.adminOrderService.getAllOrders(userName, drugName, page).subscribe((orderslist: ListCustomerOrders) => {
+      this.userOrderList = orderslist;
+      this.UserOrders = orderslist.results;
+      this.userName = userName;
+      console.log(this.UserOrders);
+      
+
+    });
+  }
+  getOrderByDrugName(drugName: string) {
     
-  });
-}
-getOrderByDrugName(drugName:string){
-  this.drugName=drugName
-  this.getOrderByUser(this.userName,drugName)
-}
-//pagenation
-onChangePage(event:PageEvent){
-  let page = event.pageIndex;
-  page=page+1;
-  this.getOrderByUser(this.userName,this.drugName,page)
-}
-// close button
-getOrderResult(){
-  
-  this.userResult=this.users
-  
-}
+    this.drugName = drugName
+    this.getOrderByUser(this.userName, drugName)
+  }
+  //pagenation
+  onChangePage(event: PageEvent) {
+    let page = event.pageIndex;
+    page = page + 1;
+    this.getOrderByUser(this.userName, this.drugName, page)
+  }
+  // close button
+  getOrderResult() {
+
+    this.userResult = this.users
+
+  }
 
 
   // filter orders by user as (test)  use TypeScript withou api filters
-  filterOrderByUser(sort:string,page?:number){
-    this.adminOrderService.getcustomerordere(sort,page)
-   
-    .subscribe((orderslist:ListCustomerOrders)=>{
-      this.userOrderList=orderslist;
-      this.UserOrders=orderslist.results;
-      this.sort=sort;
-      console.log(this.UserOrders);
-      
-    });
+  filterOrderByUser(sort: string, page?: number) {
+    this.adminOrderService.getcustomerordere(sort, page)
+
+      .subscribe((orderslist: ListCustomerOrders) => {
+        this.userOrderList = orderslist;
+        this.UserOrders = orderslist.results;
+        this.sort = sort;
+        console.log(this.UserOrders);
+
+      });
   }
-// filter orders by user as (test)  use TypeScript withou api filters
+  // filter orders by user as (test)  use TypeScript withou api filters
 
   // onChangePage1(event:PageEvent){
   //   let page = event.pageIndex;
   //   page=page+1;
   //   this.filterOrderByUser(this.sort,page)
   // }
-  onChange(UserOrders:Order[]=[]){
-    this.UserOrders=UserOrders
+  onChange(UserOrders: Order[] = []) {
+    this.UserOrders = UserOrders
 
   }
+
+  openDialog(x: any, y: any) {
+
+  }
+
+
 }

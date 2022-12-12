@@ -7,7 +7,7 @@
 
 <div>
   <!--
-    Filter By typeScript
+    Filter By typeScript as test
 <mat-form-field class='order-table' >
  
     <mat-label>Order By Pharmacy</mat-label>
@@ -67,7 +67,7 @@
 
 
 </div>
-<app-admin-orders [UserOrders]='UserOrders' [users]='users' (onChange)='onChange($event)'></app-admin-orders>
+<app-admin-orders *ngIf="showOrders" [UserOrders]='UserOrders' [users]='users' (onChange)='onChange($event)'></app-admin-orders>
 
 <mat-paginator *ngIf='UserOrders.length != 0'
 [length]="allOrder?.count"
@@ -77,4 +77,4 @@
 aria-label="Select page">
 </mat-paginator>
 </div>
-<app-admin-users [userResult]='userResult'></app-admin-users>
+<app-admin-users *ngIf="showUsers" [userResult]='userResult'></app-admin-users>

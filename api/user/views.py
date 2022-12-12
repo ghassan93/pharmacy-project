@@ -130,9 +130,9 @@ class AddListUsers(ListCreateAPIView):
         serializer = UserSerializer(data=customers, many=True)
         valid = serializer.is_valid()
 
-        for error in serializer.errors:
-            if error['code'][0].code != 'unique':
-                return Response("Bad Syntax", status=status.HTTP_400_BAD_REQUEST)
+        # for error in serializer.errors:
+        #     if error['code'][0].code != 'unique':
+        #         return Response("Bad Syntax", status=status.HTTP_400_BAD_REQUEST)
         
         self.queryset.delete()
         

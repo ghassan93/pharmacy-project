@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Customer } from 'src/app/models/models';
+import { CreateUserDialogComponent } from '../create-user-dialog/create-user-dialog.component';
 
 @Component({
   selector: 'app-admin-users',
@@ -9,7 +11,7 @@ import { Customer } from 'src/app/models/models';
 export class AdminUsersComponent implements OnInit {
   @Input() userResult:Customer[]=[]
   displayedColumns: string[] = ['name', 'code', 'latitude', 'longitude'];
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   
@@ -17,6 +19,10 @@ export class AdminUsersComponent implements OnInit {
   }
   onBackToHome(){
     this.userResult=[]
+  }
+
+  openDialog() {
+    this.dialog.open(CreateUserDialogComponent);
   }
 }
 

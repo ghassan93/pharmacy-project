@@ -53,4 +53,13 @@ export class AdminOrderService {
       return this.http.get<ListCustomerOrders>(`${env.BASE_URL}orders/${code}/`,{params});
       
       }
+
+      createNewUsers(file:FormData){
+        let params = new HttpParams()
+   
+        params= new HttpParams().append('file',String(file))
+         
+         return this.http.post(`${env.BASE_URL}users/`,{params});
+         
+         }
 }

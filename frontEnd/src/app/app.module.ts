@@ -6,42 +6,37 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { DrugComponent } from './components/drug/drug.component';
-import { LoginComponent } from './components/login/login.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { CustomerComponent } from './components/customer/customer.component';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
-import { HomeComponent } from './components/home/home.component';
-import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
-import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
-import { OrderComponent } from './components/customer/order/order.component';
-import { OrderListComponent } from './components/customer/order-list/order-list.component';
+
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import {MatAutocompleteModule,} from '@angular/material/autocomplete';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { NavComponent } from './core/header/nav/nav.component';
+
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
-import { CreateUserDialogComponent } from './components/admin/create-user-dialog/create-user-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { LoginComponent } from './shared/components/login/login.component';
+import { HomeComponent } from './shared/components/home/home.component';
+import { NavComponent } from './core/components/nav/nav.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DrugComponent,
+
     LoginComponent,
-    AdminComponent,
-    CustomerComponent,
     HomeComponent,
-    AdminOrdersComponent,
-    AdminUsersComponent,
-    OrderComponent,
-    OrderListComponent,
+  
+
     NavComponent,
-    CreateUserDialogComponent,
+ 
     
     
 
@@ -58,7 +53,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatPaginatorModule,
     MatSelectModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule
    
   ],
   providers: [{

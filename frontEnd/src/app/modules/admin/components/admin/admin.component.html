@@ -1,0 +1,61 @@
+
+<div class="filter-user-order">
+   <p class='order-title' style="font-weight: bold;">Order</p>
+   <button class='customers-button' (click)='getusers()'>Customers</button>
+   <hr>
+<div>
+
+
+  <mat-form-field class='order-table' >
+ 
+    <mat-label>Order By Pharmacy</mat-label>
+    <mat-select 
+    panelClass="sort-select"
+        [(ngModel)]="userNameSort" 
+        (selectionChange)="getOrderByUser(userNameSort)" >
+        
+      <mat-option *ngFor="let user of users" [value]="user.code">
+        {{user.name}}
+      </mat-option>
+     
+    </mat-select>
+
+
+
+    
+  </mat-form-field>
+
+
+
+  <mat-form-field class='filter-drug' >
+ 
+    <mat-label>Order By Drug</mat-label>
+    <mat-select
+    panelClass="sort-select"
+        [(ngModel)]="drugSort" 
+        (selectionChange)="getOrderByDrugName(drugSort)" >
+        
+      <mat-option *ngFor="let drug of allDrug" [value]="drug.name">
+        {{drug.name}}
+      </mat-option>
+     
+    </mat-select>
+
+
+
+    
+  </mat-form-field>
+
+
+</div>
+<app-admin-orders *ngIf="showOrders" [UserOrders]='UserOrders' [users]='users' (onChange)='onChange($event)'></app-admin-orders>
+
+<mat-paginator *ngIf='UserOrders.length != 0'
+[length]="allOrder?.count"
+[pageSize]="5"
+[pageSizeOptions]="[5, 10, 25, 100]"
+(page)="pageEvent =$event; onChangePage($event)"
+aria-label="Select page">
+</mat-paginator>
+</div>
+<app-admin-users *ngIf="showUsers" [userResult]='userResult'></app-admin-users>

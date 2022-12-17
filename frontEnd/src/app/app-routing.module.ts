@@ -1,14 +1,13 @@
-import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
-import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
-import { LoginComponent } from './components/login/login.component';
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { AdminGuard, anonymousGuard, CustomersGuard } from './core/guards/guardUser';
-import { OrderComponent } from './components/customer/order/order.component';
-import { OrderListComponent } from './components/customer/order-list/order-list.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { CustomerComponent } from './components/customer/customer.component';
+import { AdminGuard } from './core/guards/admin-guard';
+import { anonymousGuard } from './core/guards/anyUser-guard';
+import { CustomersGuard } from './core/guards/customer-guard';
+
+
+import { HomeComponent } from './shared/components/home/home.component';
+import { LoginComponent } from './shared/components/login/login.component';
 
 const routes: Routes = [
 
@@ -20,23 +19,13 @@ const routes: Routes = [
     path: '',canActivate: [anonymousGuard],
     component: HomeComponent,
   },
-  {path: 'customers', canActivate: [CustomersGuard], children:[
-    {path: '', redirectTo: 'user-dashboard', pathMatch: 'full'},
-    {path: 'user-dashboard', component: CustomerComponent},
-    {path: 'order', component: OrderComponent},
-    {path: 'order-list', component: OrderListComponent},
 
-  ]},
 
- 
-  {path: 'admin', canActivate: [AdminGuard], children:[
-    {path: '', redirectTo: 'admin-dashboard', pathMatch: 'full'},
-    {path: 'admin-dashboard', component: AdminComponent},
-    {path: 'drug-list', component: AdminOrdersComponent},
-    {path: 'customers', component: AdminUsersComponent},
 
-    
-  ]},
+
+  { path: 'customer', canActivate: [CustomersGuard] ,loadChildren: () => import('./modules/customer/customer.module').then(m => m.CustomerModule) },
+
+  { path: 'admin', canActivate: [AdminGuard], loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
  
 ];
 @NgModule({

@@ -4,7 +4,7 @@ import { AdminGuard } from './core/guards/admin-guard';
 import { generalUserGuard } from './core/guards/generalUser-guard';
 import { CustomersGuard } from './core/guards/customer-guard';
 
-import { LoginComponent } from './modules/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { LoginGuard } from './core/guards/login-guard';
 

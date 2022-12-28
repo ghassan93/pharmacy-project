@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { LoginComponent } from './modules/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { NavComponent } from './core/components/nav/nav.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { HomeComponent } from './home/home.component';

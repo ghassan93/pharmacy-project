@@ -1,0 +1,99 @@
+.sidebar {
+display: flex;
+flex-direction: column;
+width: 250px;
+  background-color: #f1f1f1;
+  top: 5px;
+  left: 100px;
+  height: 700px;
+  overflow-y: auto;
+  /* margin-left: 150px; */
+  margin: 10px 150px;
+}
+.sidebar img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 100px;
+  position: relative;
+  top: 50px;
+}
+.sidebar a {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18px;
+  padding-bottom: 40px;
+  text-align: justify;
+  padding: 40px 10px 10px 50px;
+  color: black;
+  text-decoration: none;
+}
+
+.sidebar a:hover,
+.sidebar a.hover {
+  /* styles for sidebar links when they are hovered or clicked */
+  border-left: 10px solid rgb(16, 43, 196);
+  background-color: #adb9ff;
+  padding-bottom: 50px;
+}
+.sidebar a.default:hover {
+  /* styles for default sidebar links when they are hovered */
+  background-color: #ccc;
+  color: #fff;
+}
+
+.sidebar a.active {
+  /* styles for active sidebar links */
+  border-left: 10px solid rgb(35, 35, 40);
+  background-color: #adb9ff;
+  padding-bottom: 50px;
+}
+
+.sidebar a.active:hover {
+  /* styles for active sidebar links when they are hovered */
+  background-color: #ccc;
+  color: #fff;
+}
+
+.sidebar a:hover {
+  /* styles for inactive sidebar links when they are hovered */
+  background-color: #ccc;
+  color: #fff;
+}
+
+.title {
+  position: absolute;
+  top: 120px;
+  left: 500px;
+  display: inline-block;
+}
+.Pharmacy-icon {
+  padding-right: 5px;
+  width: 40px;
+}
+
+h2 {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+
+.Account-title {
+  color: #4e62d5;
+}
+.test{
+  display: flex;
+  flex-direction: row;
+}
+.rout{
+ width: 70%;
+}
+
+.dashboard{
+  border-top: 2px solid #4e62d5;
+
+}

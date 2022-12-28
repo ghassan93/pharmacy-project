@@ -1,0 +1,64 @@
+<ng-container>
+  <div class="myOrder">
+    <div class="order-table" *ngFor="let order of ArchivedOrders">
+      <table
+        mat-table
+        [dataSource]="order.ordered_drugs"
+        class="mat-elevation-z8"
+        *ngIf="order.ordered_drugs.length != 0"
+      >
+        <!-- Position Column -->
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="exp_date">
+          <th mat-header-cell *matHeaderCellDef>Exp Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.exp_date }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="drug_price">
+          <th mat-header-cell *matHeaderCellDef>Drug Price</th>
+          <td mat-cell *matCellDef="let element">{{ element.drug_price }}$</td>
+        </ng-container>
+
+        <ng-container matColumnDef="total_price">
+          <th mat-header-cell *matHeaderCellDef>Total Price</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.drug_price * element.quantity | number : "1.2-2" }}$
+          </td></ng-container
+        >
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+          <td mat-footer-cell *matFooterCellDef>
+            Order Status: <span>{{ order.status }}</span>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</ng-container>
+<mat-paginator 
+  *ngIf="ArchivedOrders.length != 0"
+  [length]="Archivedlist?.count"
+  [pageSize]="10"
+  [pageSizeOptions]="[10, 15, 20]"
+  (page)="pageEvent = $event; onChangePage($event)"
+  aria-label="Select page"
+>
+</mat-paginator>

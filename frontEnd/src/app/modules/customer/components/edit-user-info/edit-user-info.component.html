@@ -1,0 +1,32 @@
+<div class="main">
+  <h1>Account Information</h1>
+  <div class="form">
+    <form [formGroup]="userForm">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        class="name"
+        name="name"
+        [(ngModel)]="userName"
+        formControlName="name"
+      /><br />
+
+      <label for="accountNumber">Account Number:</label>
+      <h3 class="acoount-number">{{ accountNumber }}</h3>
+      <br />
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        class="password"
+        name="password"
+        placeholder="*******"
+        formControlName="password"
+      />
+
+      <br />
+    </form>
+  </div>
+  <button class="update" type="submit" (click)="updateUserProfile()">
+    Update
+  </button>
+</div>

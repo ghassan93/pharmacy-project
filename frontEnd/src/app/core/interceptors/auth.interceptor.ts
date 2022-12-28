@@ -7,8 +7,8 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserService } from '../services/user.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from '../authentication/auth.service';
+
 
 
 @Injectable()
@@ -32,7 +32,7 @@ export class AuthInterceptor implements HttpInterceptor {
   
         }),
       });
-      console.log('fileee');
+  
       
       return next.handle(requestWithToken)
       

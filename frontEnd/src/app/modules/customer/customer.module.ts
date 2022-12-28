@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './components/customer/customer.component';
 
-import { OrderListComponent } from './components/order-list/order-list.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -15,12 +14,20 @@ import {MatAutocompleteModule,} from '@angular/material/autocomplete';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './components/order/order.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ArchivdOrderComponent } from './components/archivd-order/archivd-order.component';
+import { CurrentOrderComponent } from './components/current-order/current-order.component';
+import { EditUserInfoComponent } from './components/edit-user-info/edit-user-info.component';
+
 
 @NgModule({
   declarations: [
     CustomerComponent,
     OrderComponent,
-    OrderListComponent
+    EditProfileComponent,
+    ArchivdOrderComponent,
+    CurrentOrderComponent,
+    EditUserInfoComponent
 
   ],
   imports: [
@@ -36,6 +43,7 @@ import { OrderComponent } from './components/order/order.component';
     MatPaginatorModule,
     ReactiveFormsModule,
     FormsModule,
+
 
   ]
 })

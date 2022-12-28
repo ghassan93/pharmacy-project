@@ -1,0 +1,33 @@
+.myOrder {
+  left: 600px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  /* width: calc(80% - 200px); */
+
+  margin-top: 150px;
+}
+
+table {
+  width: 70%;
+  margin: 30px 0px;
+  position: relative;
+  top: 0;
+  min-width: 900px;
+}
+table tr:hover {
+  background-color: rgb(238, 235, 235);
+  cursor: pointer;
+}
+.mat-elevation-z8 {
+  position: relative;
+  top: 0;
+}
+h1 {
+  font-weight: bold;
+  text-align: center;
+}
+tr.mat-header-row {
+  background-color: rgb(178, 214, 252);
+  color: black;
+}

@@ -1,2 +1,7 @@
-<app-nav ></app-nav>
-<router-outlet></router-outlet>
+<app-nav></app-nav>
+<app-loading></app-loading>
+<app-messages></app-messages>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<app-footer *ngIf="!(router.url === '/login')"></app-footer>

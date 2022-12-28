@@ -1,16 +1,20 @@
+<div class="navbar" *ngIf="!(router.url === '/login')" [ngClass]="navClasses">
+  <img class="nav-logo" src="../../assets/icons/logo-removebg-p.svg" alt="" />
+  <div class="nav-link">
+    <a [routerLink]="['/home']">Home</a>
+    <a [routerLink]="['/home']">Administration</a>
+    <a [routerLink]="['/home']">Vision</a>
+    <a [routerLink]="['/home']">Some Text</a>
+  </div>
+  <div-- class="dropdown">
+    <img class="admin-img" src="../../assets/images/integrity.png" alt="" />
+    <button class="dropbtn">
+      {{ userName }}<mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
 
-<div class="navbar navbar-dark bg-primary" *ngIf="authService.isLoggedIn$ | async " >
-    
-    <img class="nav-logo" src="../../assets/icons/logo-removebg-p.svg" alt="">
-    <div  class="nav-link">
-        <a  href="#">Home</a> 
-        <a href="#">Administration</a> 
-        <a href="#">Vision</a> 
-        <a href="#">Some Text</a>
-    
-
-  
-      <button class="logout" (click)="logOut()">Log Out</button>
-</div>
-
+    <div class="dropdown-content">
+      <a (click)="editProfileGuard.navigateToProfile()"> Edit Profile</a>
+      <a (click)="logOut()"> LogOut</a>
+    </div>
+  </div-->
 </div>

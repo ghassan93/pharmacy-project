@@ -1,34 +1,23 @@
-
-
-
 <div class="home-logo">
-    <img class="home-icon"  src="../../assets/icons/home-icon.svg" alt="">
-    <p class="home-text">/ New Order</p>
+  <img class="home-icon" src="../../assets/icons/home-icon.svg" alt="" />
+  <p class="home-text">/ New Order</p>
 </div>
-<br>
+<br />
 <div class="Pharmacy-title">
-    <img class="Pharmacy-icon"  src="../../assets/icons/pharmacy-icon.svg" alt="">
-    <p class="username" > {{ userName}}</p>
-    <button class="myOrder" (click)="getCustomerOrder()" >My Order</button>
+  <img
+    class="Pharmacy-icon"
+    src="../../assets/icons/pharmacy-icon.svg"
+    alt=""
+  />
+  <p class="username">Pharmacy Name</p>
+  <h6 class="name-user">{{ userName }}</h6>
+  <mat-icon class="Location-icon"> add_location</mat-icon>
+  <p class="Location">Location</p>
+  <h6 class="Location-user">{{ userName }}</h6>
 </div>
 
-<ng-container >
-<order ></order>
-
+<ng-container>
+  <order></order>
 </ng-container>
 
-<order-list [Orders]='Orders' ></order-list>
-
-
-
-
-
-
-
-<mat-paginator *ngIf='Orders.length != 0'
-[length]="orderlist?.count"
-[pageSize]="10"
-[pageSizeOptions]="[5, 10, 25, 100]"
-(page)="pageEvent =$event; onChangePage($event)"
-aria-label="Select page">
-</mat-paginator>
+<div class="style"></div>

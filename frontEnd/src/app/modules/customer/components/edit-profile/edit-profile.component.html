@@ -1,0 +1,35 @@
+<div class="test">
+<div class="sidebar">
+  <img src="../../assets/icons/pharmacy-icon.svg" alt="Sidebar Image" />
+  <a
+    id="edit-user-info"
+    class="default"
+    (click)="toggleHoverClass('edit-user-info')"
+    [routerLink]="['edit-user-info']"
+    >Account Information</a>
+  <a
+    id="current-orders"
+    (click)="toggleHoverClass('current-orders')"
+    [routerLink]="['current-orders']"
+    >Current Order</a>
+  <a
+    id="archived-orders"
+    (click)="toggleHoverClass('archived-orders')"
+    [routerLink]="['archived-orders']"
+    >Archivd Orders</a>
+
+    <a class="dashboard" [routerLink]="['/customer/user-dashboard']">Go to Dashboard </a>
+</div>
+
+<div class="title">
+  <img
+    class="Pharmacy-icon"
+    src="../../assets/icons/pharmacy-icon.svg"
+    alt=""
+  />
+  <h2 class="pharmacy-title">/Pharmacy Profile</h2>
+  <h2 class="Account-title">/{{currentChildRouteName}}</h2>
+</div>
+<div class="rout">
+<router-outlet></router-outlet>
+</div></div>
